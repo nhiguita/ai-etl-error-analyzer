@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 .env
 *.log
+logs/
 
 # Local tools downloaded by the setup steps (not versioned)
 tools/

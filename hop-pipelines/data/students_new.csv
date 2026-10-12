@@ -1,0 +1,6 @@
+student_id,document_number,full_name,email,program,enrollment_date,status
+21,DOC-100021,Paula Jaramillo,paula.jaramillo@example.edu,Data Science,2026-02-01,active
+22,DOC-100022,Esteban Quintero,esteban.quintero@example.edu,Software Engineering,2026-02-01,active
+23,DOC-100023,Manuela Henao,manuela.henao@example.edu,Psychology,2026-02-01,active
+24,DOC-100024,David Correa,david.correa@example.edu,Accounting,2026-02-01,active
+25,DOC-100025,Sara Echeverri,sara.echeverri@example.edu,Civil Engineering,2026-02-01,active

@@ -1,0 +1,6 @@
+student_id,document_number,full_name,email,program,enrollment_date,status
+3,DOC-100003,Camila Torres,camila.torres@example.edu,Industrial Design,2022-08-01,graduated
+7,DOC-100007,Isabella Castro,isabella.castro@example.edu,Psychology,2023-08-01,active
+10,DOC-100010,Nicolas Restrepo,nicolas.restrepo@alumni.example.edu,Accounting,2023-02-01,graduated
+16,DOC-100016,Felipe Salazar,felipe.salazar@example.edu,Data Science,2023-08-01,active
+26,DOC-100026,Ana Maria Bedoya,anamaria.bedoya@example.edu,Software Engineering,2026-08-01,active

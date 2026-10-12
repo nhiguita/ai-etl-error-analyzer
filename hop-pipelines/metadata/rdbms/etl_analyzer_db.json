@@ -1,0 +1,26 @@
+{
+  "rdbms": {
+    "POSTGRESQL": {
+      "databaseName": "${ETL_DB_NAME}",
+      "pluginId": "POSTGRESQL",
+      "accessType": 0,
+      "hostname": "${ETL_DB_HOST}",
+      "password": "${ETL_DB_PASSWORD}",
+      "pluginName": "PostgreSQL",
+      "port": "${ETL_DB_PORT}",
+      "attributes": {
+        "EXTRA_OPTION_POSTGRESQL.stringtype": "unspecified",
+        "SUPPORTS_TIMESTAMP_DATA_TYPE": "Y",
+        "QUOTE_ALL_FIELDS": "N",
+        "SUPPORTS_BOOLEAN_DATA_TYPE": "Y",
+        "FORCE_IDENTIFIERS_TO_LOWERCASE": "N",
+        "PRESERVE_RESERVED_WORD_CASE": "Y",
+        "FORCE_IDENTIFIERS_TO_UPPERCASE": "N",
+        "PREFERRED_SCHEMA_NAME": "school"
+      },
+      "manualUrl": "",
+      "username": "${ETL_DB_USER}"
+    }
+  },
+  "name": "etl_analyzer_db"
+}
