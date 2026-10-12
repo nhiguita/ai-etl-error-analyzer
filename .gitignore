@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+*.log
+
+# Local tools downloaded by the setup steps (not versioned)
+tools/
