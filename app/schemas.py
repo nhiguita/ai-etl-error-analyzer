@@ -1,5 +1,6 @@
 """Pydantic models for the API and for the LLM structured output."""
 
+from datetime import datetime
 from enum import StrEnum
 
 from pydantic import BaseModel, Field
@@ -38,6 +39,8 @@ class LogAnalysisRequest(BaseModel):
 
 
 class LogAnalysisResponse(BaseModel):
+    analysis_id: int
+    created_at: datetime
     pipeline: str | None
     failed_transform: str | None
     root_error: str | None

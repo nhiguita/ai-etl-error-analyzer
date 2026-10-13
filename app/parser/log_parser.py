@@ -74,19 +74,19 @@ def _find_pipeline(messages: list[str]) -> str | None:
         for message in messages:
             match = pattern.search(message)
             if match:
-                return match["name"]
+                return _truncate(match["name"])
     return None
 
 
 def _find_failed_transform(entries: list[tuple[str | None, str]], pipeline: str | None) -> str | None:
     for source, message in entries:
         if source and source not in ("HopRun", pipeline) and message.startswith("ERROR"):
-            return TRANSFORM_COPY.sub("", source)
+            return _truncate(TRANSFORM_COPY.sub("", source))
     # Initialization failures are reported by the pipeline: "Transform [X.0] failed to initialize!"
     for _, message in entries:
         match = re.search(r"Transform \[(?P<name>[^\]]+)\] failed", message)
         if match:
-            return TRANSFORM_COPY.sub("", match["name"])
+            return _truncate(TRANSFORM_COPY.sub("", match["name"]))
     return None
 
 

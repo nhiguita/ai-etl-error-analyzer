@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Create (or reset) the school schema and load the fictitious seed data.
+# Create (or reset) the school schema, load the fictitious seed data and
+# create the analyzer schema if missing (stored analyses are kept).
 # Reads ETL_DB_* settings from .env; the password is never printed.
 set -euo pipefail
 
@@ -21,7 +22,7 @@ export PGUSER="${ETL_DB_USER:-etl_analyzer}"
 export PGDATABASE="${ETL_DB_NAME:-etl_analyzer_db}"
 export PGPASSWORD="${ETL_DB_PASSWORD:?ETL_DB_PASSWORD is not set in .env}"
 
-for file in sql/01_schema.sql sql/02_seed.sql; do
+for file in sql/01_schema.sql sql/02_seed.sql sql/03_analyses.sql; do
     echo "Applying $file"
     psql -v ON_ERROR_STOP=1 -q -f "$file"
 done
