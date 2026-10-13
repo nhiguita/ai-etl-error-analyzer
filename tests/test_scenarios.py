@@ -6,21 +6,15 @@ from pathlib import Path
 
 import pytest
 
+from app.schemas import ErrorType, Severity
+
 ROOT = Path(__file__).resolve().parent.parent
 SAMPLE_LOGS = ROOT / "sample-logs"
 PIPELINES = ROOT / "hop-pipelines" / "pipelines"
 DATA = ROOT / "hop-pipelines" / "data"
 
-# Mirrors docs/ERROR_TAXONOMY.md.
-ERROR_TYPES = {
-    "DATABASE_CONSTRAINT",
-    "INVALID_VALUE",
-    "SCHEMA_MISMATCH",
-    "DATABASE_CONNECTION",
-    "AUTHENTICATION",
-    "FILE_NOT_FOUND",
-}
-SEVERITIES = {"CRITICAL", "HIGH", "MEDIUM", "LOW"}
+ERROR_TYPES = {e.value for e in ErrorType}
+SEVERITIES = {s.value for s in Severity}
 
 SCENARIOS = json.loads((SAMPLE_LOGS / "scenarios.json").read_text())
 
