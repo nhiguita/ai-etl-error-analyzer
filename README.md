@@ -133,3 +133,7 @@ scripts/run_pipeline.sh student_insert INPUT_FILE=students_invalid_status.csv
   value from the failing row (scenario 11). Adding the table's constraint definitions to the
   context is a possible improvement.
 - The evaluation set is small (15 scenarios); the prompt was not tuned on it.
+
+## License
+
+[MIT](LICENSE) © 2026 Natalia Higuita Alzate
