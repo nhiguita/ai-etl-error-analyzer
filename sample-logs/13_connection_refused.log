@@ -1,0 +1,33 @@
+2026/10/13 09:10:01 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
+2026/10/13 09:10:01 - HopRun - Enabling project 'etl-error-analyzer'
+2026/10/13 09:10:01 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
+2026/10/13 09:10:01 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/student_sync.hpl
+2026/10/13 09:10:01 - student_sync - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/13 09:10:01 - student_sync - Execution started for pipeline [student_sync]
+2026/10/13 09:10:02 - Sync students.0 - ERROR: An error occurred during initialization, processing will be stopped: 
+2026/10/13 09:10:02 - Sync students.0 - Error occurred while trying to connect to the database
+2026/10/13 09:10:02 - Sync students.0 - 
+2026/10/13 09:10:02 - Sync students.0 - Error connecting to database: (using class org.postgresql.Driver)
+2026/10/13 09:10:02 - Sync students.0 - Connection to localhost:5499 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026/10/13 09:10:02 - student_sync - ERROR: Transform [Sync students.0] failed to initialize!
+Error found during execution!
+picocli.CommandLine$ExecutionException: There was an error during execution of file '/opt/etl-error-analyzer/hop-pipelines/pipelines/student_sync.hpl'
+	at org.apache.hop.run.HopRunBase.run(HopRunBase.java:216)
+	at org.apache.hop.run.HopRun.main(HopRun.java:102)
+Caused by: picocli.CommandLine$ExecutionException: There was an error during execution of pipeline '/opt/etl-error-analyzer/hop-pipelines/pipelines/student_sync.hpl'
+	at org.apache.hop.run.HopRunBase.runPipeline(HopRunBase.java:269)
+	at org.apache.hop.run.HopRunBase.run(HopRunBase.java:207)
+	... 1 more
+Caused by: picocli.CommandLine$ExecutionException: Error running pipeline locally
+	at org.apache.hop.run.HopRunBase.runPipeline(HopRunBase.java:336)
+	at org.apache.hop.run.HopRunBase.runPipeline(HopRunBase.java:267)
+	... 2 more
+Caused by: org.apache.hop.core.exception.HopException: 
+We failed to initialize at least one transform.  Execution can not begin!
+
+
+	at org.apache.hop.pipeline.Pipeline.prepareExecution(Pipeline.java:1179)
+	at org.apache.hop.pipeline.engines.local.LocalPipelineEngine.prepareExecution(LocalPipelineEngine.java:236)
+	at org.apache.hop.run.HopRunBase.runPipeline(HopRunBase.java:331)
+	... 3 more
+

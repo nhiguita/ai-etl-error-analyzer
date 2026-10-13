@@ -1,0 +1,67 @@
+2026/10/13 09:09:17 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
+2026/10/13 09:09:17 - HopRun - Enabling project 'etl-error-analyzer'
+2026/10/13 09:09:17 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
+2026/10/13 09:09:17 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/student_insert.hpl
+2026/10/13 09:09:17 - student_insert - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/13 09:09:17 - student_insert - Execution started for pipeline [student_insert]
+2026/10/13 09:09:18 - Insert students.0 - Connected to database [etl_analyzer_db] (commit=1000)
+2026/10/13 09:09:18 - Read new students.0 - Header row skipped in file '/opt/etl-error-analyzer/hop-pipelines/data/students_invalid_date.csv'
+org.apache.hop.core.exception.HopException: 
+
+There were 1 conversion errors on line 2
+
+
+enrollment_date String : couldn't convert string [01/02/2026] to a date using format [yyyy-MM-dd] on offset location 2
+01/02/2026
+
+
+	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.processRow(CsvInput.java:182)
+	at org.apache.hop.pipeline.transform.RunThread.run(RunThread.java:54)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.apache.hop.core.exception.HopValueException: 
+enrollment_date String : couldn't convert string [01/02/2026] to a date using format [yyyy-MM-dd] on offset location 2
+01/02/2026
+
+	at org.apache.hop.core.row.value.ValueMetaBase.convertStringToDate(ValueMetaBase.java:1144)
+	at org.apache.hop.core.row.value.ValueMetaBase.getDate(ValueMetaBase.java:2795)
+	at org.apache.hop.core.row.value.ValueMetaBase.convertData(ValueMetaBase.java:4409)
+	at org.apache.hop.core.row.value.ValueMetaBase.convertBinaryStringToNativeType(ValueMetaBase.java:1907)
+	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.readOneRow(CsvInput.java:791)
+	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.processRow(CsvInput.java:142)
+	... 2 more
+Caused by: java.text.ParseException: 01/02/2026
+	at org.apache.hop.core.row.value.ValueMetaBase.convertStringToDate(ValueMetaBase.java:1127)
+	... 7 more
+2026/10/13 09:09:18 - Read new students.0 - ERROR: Unexpected error
+2026/10/13 09:09:18 - Read new students.0 - org.apache.hop.core.exception.HopException: 
+2026/10/13 09:09:18 - Read new students.0 - 
+2026/10/13 09:09:18 - Read new students.0 - There were 1 conversion errors on line 2
+2026/10/13 09:09:18 - Read new students.0 - 
+2026/10/13 09:09:18 - Read new students.0 - 
+2026/10/13 09:09:18 - Read new students.0 - enrollment_date String : couldn't convert string [01/02/2026] to a date using format [yyyy-MM-dd] on offset location 2
+2026/10/13 09:09:18 - Read new students.0 - 01/02/2026
+2026/10/13 09:09:18 - Read new students.0 - 
+2026/10/13 09:09:18 - Read new students.0 - 
+2026/10/13 09:09:18 - Read new students.0 - 	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.processRow(CsvInput.java:182)
+2026/10/13 09:09:18 - Read new students.0 - 	at org.apache.hop.pipeline.transform.RunThread.run(RunThread.java:54)
+2026/10/13 09:09:18 - Read new students.0 - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026/10/13 09:09:18 - Read new students.0 - Caused by: org.apache.hop.core.exception.HopValueException: 
+2026/10/13 09:09:18 - Read new students.0 - enrollment_date String : couldn't convert string [01/02/2026] to a date using format [yyyy-MM-dd] on offset location 2
+2026/10/13 09:09:18 - Read new students.0 - 01/02/2026
+2026/10/13 09:09:18 - Read new students.0 - 
+2026/10/13 09:09:18 - Read new students.0 - 	at org.apache.hop.core.row.value.ValueMetaBase.convertStringToDate(ValueMetaBase.java:1144)
+2026/10/13 09:09:18 - Read new students.0 - 	at org.apache.hop.core.row.value.ValueMetaBase.getDate(ValueMetaBase.java:2795)
+2026/10/13 09:09:18 - Read new students.0 - 	at org.apache.hop.core.row.value.ValueMetaBase.convertData(ValueMetaBase.java:4409)
+2026/10/13 09:09:18 - Read new students.0 - 	at org.apache.hop.core.row.value.ValueMetaBase.convertBinaryStringToNativeType(ValueMetaBase.java:1907)
+2026/10/13 09:09:18 - Read new students.0 - 	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.readOneRow(CsvInput.java:791)
+2026/10/13 09:09:18 - Read new students.0 - 	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.processRow(CsvInput.java:142)
+2026/10/13 09:09:18 - Read new students.0 - 	... 2 more
+2026/10/13 09:09:18 - Read new students.0 - Caused by: java.text.ParseException: 01/02/2026
+2026/10/13 09:09:18 - Read new students.0 - 	at org.apache.hop.core.row.value.ValueMetaBase.convertStringToDate(ValueMetaBase.java:1127)
+2026/10/13 09:09:18 - Read new students.0 - 	... 7 more
+2026/10/13 09:09:18 - Read new students.0 - Finished processing (I=2, O=0, R=0, W=0, U=0, E=1)
+2026/10/13 09:09:18 - student_insert - Pipeline detected one or more transforms with errors.
+2026/10/13 09:09:18 - student_insert - Pipeline is killing the other transforms!
+2026/10/13 09:09:18 - student_insert - Pipeline duration : 0.87 seconds [  0.870" ]
+HopRun exit.
+2026/10/13 09:09:18 - student_insert - Execution finished on a local pipeline engine with run configuration 'local'

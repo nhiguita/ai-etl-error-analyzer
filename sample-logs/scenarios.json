@@ -1,0 +1,182 @@
+[
+  {
+    "id": "01_duplicate_student_pk",
+    "pipeline": "student_insert",
+    "setup": [["student_insert"]],
+    "args": [],
+    "log_marker": "duplicate key value violates unique constraint \"students_pkey\"",
+    "expected": {
+      "error_type": "DATABASE_CONSTRAINT",
+      "severity": "HIGH",
+      "root_cause": "The same batch of new students was loaded twice; student_insert uses a plain table insert, so re-running it repeats existing student_id values."
+    }
+  },
+  {
+    "id": "02_duplicate_email",
+    "pipeline": "student_insert",
+    "setup": [],
+    "args": ["INPUT_FILE=students_duplicate_email.csv"],
+    "log_marker": "duplicate key value violates unique constraint \"students_email_key\"",
+    "expected": {
+      "error_type": "DATABASE_CONSTRAINT",
+      "severity": "MEDIUM",
+      "root_cause": "A new student (id 28) uses an email that already belongs to an existing student."
+    }
+  },
+  {
+    "id": "03_invalid_status",
+    "pipeline": "student_insert",
+    "setup": [],
+    "args": ["INPUT_FILE=students_invalid_status.csv"],
+    "log_marker": "violates check constraint \"students_status_check\"",
+    "expected": {
+      "error_type": "DATABASE_CONSTRAINT",
+      "severity": "MEDIUM",
+      "root_cause": "A source row has status 'suspended', which is not one of the allowed values (active, inactive, graduated)."
+    }
+  },
+  {
+    "id": "04_missing_email",
+    "pipeline": "student_insert",
+    "setup": [],
+    "args": ["INPUT_FILE=students_missing_email.csv"],
+    "log_marker": "null value in column \"email\" of relation \"students\" violates not-null constraint",
+    "expected": {
+      "error_type": "DATABASE_CONSTRAINT",
+      "severity": "MEDIUM",
+      "root_cause": "A source row has an empty email, and email is mandatory for students."
+    }
+  },
+  {
+    "id": "05_invalid_date_format",
+    "pipeline": "student_insert",
+    "setup": [],
+    "args": ["INPUT_FILE=students_invalid_date.csv"],
+    "log_marker": "couldn't convert string [01/02/2026] to a date using format [yyyy-MM-dd]",
+    "expected": {
+      "error_type": "INVALID_VALUE",
+      "severity": "MEDIUM",
+      "root_cause": "The enrollment_date '01/02/2026' does not match the yyyy-MM-dd format expected by the CSV input."
+    }
+  },
+  {
+    "id": "06_document_too_long",
+    "pipeline": "student_insert",
+    "setup": [],
+    "args": ["INPUT_FILE=students_long_document.csv"],
+    "log_marker": "value too long for type character varying(20)",
+    "expected": {
+      "error_type": "INVALID_VALUE",
+      "severity": "MEDIUM",
+      "root_cause": "The document_number 'DOC-100033-TRANSFER-2026-EXTERNAL' exceeds the 20-character limit of the column."
+    }
+  },
+  {
+    "id": "07_nonexistent_column",
+    "pipeline": "student_insert_with_phone",
+    "setup": [],
+    "args": [],
+    "log_marker": "column \"phone_number\" of relation \"students\" does not exist",
+    "expected": {
+      "error_type": "SCHEMA_MISMATCH",
+      "severity": "HIGH",
+      "root_cause": "The pipeline maps a phone_number field to school.students, but the table has no phone_number column."
+    }
+  },
+  {
+    "id": "08_sync_invalid_status",
+    "pipeline": "student_sync",
+    "setup": [],
+    "args": ["INPUT_FILE=students_sync_invalid_status.csv"],
+    "log_marker": "violates check constraint \"students_status_check\"",
+    "expected": {
+      "error_type": "DATABASE_CONSTRAINT",
+      "severity": "MEDIUM",
+      "root_cause": "The sync tries to update student 7 to status 'on_leave', which is not an allowed status."
+    }
+  },
+  {
+    "id": "09_unknown_student_reference",
+    "pipeline": "access_log_load",
+    "setup": [],
+    "args": ["INPUT_FILE=access_logs_unknown_student.csv"],
+    "log_marker": "violates foreign key constraint \"access_logs_student_id_fkey\"",
+    "expected": {
+      "error_type": "DATABASE_CONSTRAINT",
+      "severity": "MEDIUM",
+      "root_cause": "An access event references student_id 999, which does not exist in school.students."
+    }
+  },
+  {
+    "id": "10_invalid_ip_address",
+    "pipeline": "access_log_load",
+    "setup": [],
+    "args": ["INPUT_FILE=access_logs_invalid_ip.csv"],
+    "log_marker": "invalid input syntax for type inet: \"10.20.5.300\"",
+    "expected": {
+      "error_type": "INVALID_VALUE",
+      "severity": "MEDIUM",
+      "root_cause": "The ip_address '10.20.5.300' is not a valid IPv4 address (300 is out of range)."
+    }
+  },
+  {
+    "id": "11_invalid_access_result",
+    "pipeline": "access_log_load",
+    "setup": [],
+    "args": ["INPUT_FILE=access_logs_invalid_result.csv"],
+    "log_marker": "violates check constraint \"access_logs_result_check\"",
+    "expected": {
+      "error_type": "DATABASE_CONSTRAINT",
+      "severity": "MEDIUM",
+      "root_cause": "An access event has result 'blocked', which is not one of the allowed values (success, denied)."
+    }
+  },
+  {
+    "id": "12_missing_input_file",
+    "pipeline": "student_insert",
+    "setup": [],
+    "args": ["INPUT_FILE=students_2026_10.csv"],
+    "log_marker": "FileNotFoundException",
+    "expected": {
+      "error_type": "FILE_NOT_FOUND",
+      "severity": "HIGH",
+      "root_cause": "The expected input file students_2026_10.csv was not delivered to the data folder."
+    }
+  },
+  {
+    "id": "13_connection_refused",
+    "pipeline": "student_sync",
+    "setup": [],
+    "args": ["ETL_DB_PORT=5499"],
+    "log_marker": "Connection to localhost:5499 refused",
+    "expected": {
+      "error_type": "DATABASE_CONNECTION",
+      "severity": "CRITICAL",
+      "root_cause": "Nothing is listening on localhost:5499; the connection points to the wrong port or PostgreSQL is down."
+    }
+  },
+  {
+    "id": "14_authentication_failed",
+    "pipeline": "student_sync",
+    "setup": [],
+    "args": ["ETL_DB_PASSWORD=wrong-password"],
+    "log_marker": "password authentication failed for user \"etl_analyzer\"",
+    "expected": {
+      "error_type": "AUTHENTICATION",
+      "severity": "CRITICAL",
+      "root_cause": "The password configured for user etl_analyzer is wrong or was rotated without updating the pipeline environment."
+    }
+  },
+  {
+    "id": "15_database_missing",
+    "pipeline": "access_log_load",
+    "setup": [],
+    "args": ["ETL_DB_NAME=etl_analyzer_archive"],
+    "log_marker": "database \"etl_analyzer_archive\" does not exist",
+    "expected": {
+      "error_type": "DATABASE_CONNECTION",
+      "severity": "CRITICAL",
+      "root_cause": "The connection targets database etl_analyzer_archive, which does not exist on the server."
+    }
+  }
+]

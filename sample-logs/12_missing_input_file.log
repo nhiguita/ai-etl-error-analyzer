@@ -1,0 +1,70 @@
+2026/10/13 09:09:56 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
+2026/10/13 09:09:56 - HopRun - Enabling project 'etl-error-analyzer'
+2026/10/13 09:09:56 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
+2026/10/13 09:09:56 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/student_insert.hpl
+2026/10/13 09:09:56 - student_insert - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/13 09:09:56 - student_insert - Execution started for pipeline [student_insert]
+2026/10/13 09:09:57 - Insert students.0 - Connected to database [etl_analyzer_db] (commit=1000)
+org.apache.hop.core.exception.HopFileException: 
+
+An error occurred while creating field mapping
+Could not read from "file:///opt/etl-error-analyzer/hop-pipelines/data/students_2026_10.csv" because it is not a file.
+
+Could not read from "file:///opt/etl-error-analyzer/hop-pipelines/data/students_2026_10.csv" because it is not a file.
+
+	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.readFieldNamesFromFile(CsvInput.java:524)
+	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.createFieldMapping(CsvInput.java:480)
+	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.openNextFile(CsvInput.java:354)
+	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.processRow(CsvInput.java:128)
+	at org.apache.hop.pipeline.transform.RunThread.run(RunThread.java:54)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.apache.commons.vfs2.FileNotFoundException: Could not read from "file:///opt/etl-error-analyzer/hop-pipelines/data/students_2026_10.csv" because it is not a file.
+	at org.apache.commons.vfs2.provider.AbstractFileObject.getInputStream(AbstractFileObject.java:1202)
+	at org.apache.commons.vfs2.provider.AbstractFileObject.getInputStream(AbstractFileObject.java:1187)
+	at org.apache.commons.vfs2.provider.DefaultFileContent.buildInputStream(DefaultFileContent.java:257)
+	at org.apache.commons.vfs2.provider.DefaultFileContent.getInputStream(DefaultFileContent.java:525)
+	at org.apache.hop.core.vfs.HopVfs.getInputStream(HopVfs.java:437)
+	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.readFieldNamesFromFile(CsvInput.java:497)
+	... 5 more
+Caused by: java.io.FileNotFoundException: /opt/etl-error-analyzer/hop-pipelines/data/students_2026_10.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at org.apache.commons.vfs2.provider.local.LocalFile.doGetInputStream(LocalFile.java:105)
+	at org.apache.commons.vfs2.provider.AbstractFileObject.getInputStream(AbstractFileObject.java:1200)
+	... 10 more
+2026/10/13 09:09:57 - Read new students.0 - ERROR: Unexpected error
+2026/10/13 09:09:57 - Read new students.0 - org.apache.hop.core.exception.HopFileException: 
+2026/10/13 09:09:57 - Read new students.0 - 
+2026/10/13 09:09:57 - Read new students.0 - An error occurred while creating field mapping
+2026/10/13 09:09:57 - Read new students.0 - Could not read from "file:///opt/etl-error-analyzer/hop-pipelines/data/students_2026_10.csv" because it is not a file.
+2026/10/13 09:09:57 - Read new students.0 - 
+2026/10/13 09:09:57 - Read new students.0 - Could not read from "file:///opt/etl-error-analyzer/hop-pipelines/data/students_2026_10.csv" because it is not a file.
+2026/10/13 09:09:57 - Read new students.0 - 
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.readFieldNamesFromFile(CsvInput.java:524)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.createFieldMapping(CsvInput.java:480)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.openNextFile(CsvInput.java:354)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.processRow(CsvInput.java:128)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.hop.pipeline.transform.RunThread.run(RunThread.java:54)
+2026/10/13 09:09:57 - Read new students.0 - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026/10/13 09:09:57 - Read new students.0 - Caused by: org.apache.commons.vfs2.FileNotFoundException: Could not read from "file:///opt/etl-error-analyzer/hop-pipelines/data/students_2026_10.csv" because it is not a file.
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.commons.vfs2.provider.AbstractFileObject.getInputStream(AbstractFileObject.java:1202)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.commons.vfs2.provider.AbstractFileObject.getInputStream(AbstractFileObject.java:1187)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.commons.vfs2.provider.DefaultFileContent.buildInputStream(DefaultFileContent.java:257)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.commons.vfs2.provider.DefaultFileContent.getInputStream(DefaultFileContent.java:525)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.hop.core.vfs.HopVfs.getInputStream(HopVfs.java:437)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.hop.pipeline.transforms.csvinput.CsvInput.readFieldNamesFromFile(CsvInput.java:497)
+2026/10/13 09:09:57 - Read new students.0 - 	... 5 more
+2026/10/13 09:09:57 - Read new students.0 - Caused by: java.io.FileNotFoundException: /opt/etl-error-analyzer/hop-pipelines/data/students_2026_10.csv (No such file or directory)
+2026/10/13 09:09:57 - Read new students.0 - 	at java.base/java.io.FileInputStream.open0(Native Method)
+2026/10/13 09:09:57 - Read new students.0 - 	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+2026/10/13 09:09:57 - Read new students.0 - 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.commons.vfs2.provider.local.LocalFile.doGetInputStream(LocalFile.java:105)
+2026/10/13 09:09:57 - Read new students.0 - 	at org.apache.commons.vfs2.provider.AbstractFileObject.getInputStream(AbstractFileObject.java:1200)
+2026/10/13 09:09:57 - Read new students.0 - 	... 10 more
+2026/10/13 09:09:57 - Read new students.0 - Finished processing (I=0, O=0, R=0, W=0, U=0, E=1)
+2026/10/13 09:09:57 - student_insert - Pipeline detected one or more transforms with errors.
+2026/10/13 09:09:57 - student_insert - Pipeline is killing the other transforms!
+2026/10/13 09:09:57 - student_insert - Pipeline duration : 0.814 seconds [  0.814" ]
+HopRun exit.
+2026/10/13 09:09:57 - student_insert - Execution finished on a local pipeline engine with run configuration 'local'

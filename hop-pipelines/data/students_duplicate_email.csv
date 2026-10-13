@@ -1,0 +1,3 @@
+student_id,document_number,full_name,email,program,enrollment_date,status
+27,DOC-100027,Julian Arias,julian.arias@example.edu,Data Science,2026-02-01,active
+28,DOC-100028,Laura G. Gomez,laura.gomez@example.edu,Psychology,2026-02-01,active

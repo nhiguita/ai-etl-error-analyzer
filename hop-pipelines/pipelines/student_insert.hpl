@@ -8,6 +8,11 @@
     <pipeline_version/>
     <pipeline_type>Normal</pipeline_type>
     <parameters>
+      <parameter>
+        <name>INPUT_FILE</name>
+        <default_value>students_new.csv</default_value>
+        <description>CSV file name inside ${PROJECT_HOME}/data</description>
+      </parameter>
     </parameters>
     <capture_transform_performance>N</capture_transform_performance>
     <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
@@ -37,7 +42,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>${PROJECT_HOME}/data/students_new.csv</filename>
+    <filename>${PROJECT_HOME}/data/${INPUT_FILE}</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>

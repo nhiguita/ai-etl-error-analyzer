@@ -5,6 +5,7 @@ __pycache__/
 .env
 *.log
 logs/
+!sample-logs/*.log
 
 # Local tools downloaded by the setup steps (not versioned)
 tools/

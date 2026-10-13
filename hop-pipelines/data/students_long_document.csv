@@ -1,0 +1,2 @@
+student_id,document_number,full_name,email,program,enrollment_date,status
+33,DOC-100033-TRANSFER-2026-EXTERNAL,Ricardo Molina,ricardo.molina@example.edu,Accounting,2026-02-01,active
