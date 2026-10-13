@@ -1,39 +1,39 @@
-2026/10/13 09:10:14 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
-2026/10/13 09:10:14 - HopRun - Enabling project 'etl-error-analyzer'
-2026/10/13 09:10:14 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
-2026/10/13 09:10:15 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/access_log_load.hpl
-2026/10/13 09:10:15 - access_log_load - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
-2026/10/13 09:10:15 - access_log_load - Execution started for pipeline [access_log_load]
-2026/10/13 09:10:16 - Insert access logs.0 - ERROR: An error occurred initializing this transform: 
-2026/10/13 09:10:16 - Insert access logs.0 - Error occurred while trying to connect to the database
-2026/10/13 09:10:16 - Insert access logs.0 - 
-2026/10/13 09:10:16 - Insert access logs.0 - Error connecting to database: (using class org.postgresql.Driver)
-2026/10/13 09:10:16 - Insert access logs.0 - FATAL: database "etl_analyzer_archive" does not exist
-2026/10/13 09:10:16 - access_log_load - ERROR: Transform [Insert access logs.0] failed to initialize!
-2026/10/13 09:10:16 - Insert access logs.0 - ERROR: Unexpected error rolling back the database connection.
-2026/10/13 09:10:16 - Insert access logs.0 - org.apache.hop.core.exception.HopDatabaseException: 
-2026/10/13 09:10:16 - Insert access logs.0 - Unable to get database metadata from this database connection
-2026/10/13 09:10:16 - Insert access logs.0 - 
-2026/10/13 09:10:16 - Insert access logs.0 - Error connecting to database [${ETL_DB_NAME}]
-2026/10/13 09:10:16 - Insert access logs.0 - 
-2026/10/13 09:10:16 - Insert access logs.0 - 
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.core.database.Database.getDatabaseMetaData(Database.java:3372)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.core.database.Database.rollback(Database.java:917)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.core.database.Database.rollback(Database.java:909)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.emptyAndCommitBatchBuffers(TableOutput.java:1239)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.dispose(TableOutput.java:1159)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.pipeline.Pipeline.disposeInitializedTransforms(Pipeline.java:1203)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.pipeline.Pipeline.prepareExecution(Pipeline.java:1154)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.pipeline.engines.local.LocalPipelineEngine.prepareExecution(LocalPipelineEngine.java:236)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.run.HopRunBase.runPipeline(HopRunBase.java:331)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.run.HopRunBase.runPipeline(HopRunBase.java:267)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.run.HopRunBase.run(HopRunBase.java:207)
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.run.HopRun.main(HopRun.java:102)
-2026/10/13 09:10:16 - Insert access logs.0 - Caused by: org.apache.hop.core.exception.HopDatabaseException: 
-2026/10/13 09:10:16 - Insert access logs.0 - Error connecting to database [${ETL_DB_NAME}]
-2026/10/13 09:10:16 - Insert access logs.0 - 
-2026/10/13 09:10:16 - Insert access logs.0 - 	at org.apache.hop.core.database.Database.getDatabaseMetaData(Database.java:3365)
-2026/10/13 09:10:16 - Insert access logs.0 - 	... 11 more
+2026/10/13 09:47:48 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
+2026/10/13 09:47:48 - HopRun - Enabling project 'etl-error-analyzer'
+2026/10/13 09:47:48 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
+2026/10/13 09:47:49 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/access_log_load.hpl
+2026/10/13 09:47:49 - access_log_load - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/13 09:47:49 - access_log_load - Execution started for pipeline [access_log_load]
+2026/10/13 09:47:49 - Insert access logs.0 - ERROR: An error occurred initializing this transform: 
+2026/10/13 09:47:49 - Insert access logs.0 - Error occurred while trying to connect to the database
+2026/10/13 09:47:49 - Insert access logs.0 - 
+2026/10/13 09:47:49 - Insert access logs.0 - Error connecting to database: (using class org.postgresql.Driver)
+2026/10/13 09:47:49 - Insert access logs.0 - FATAL: database "etl_analyzer_archive" does not exist
+2026/10/13 09:47:49 - access_log_load - ERROR: Transform [Insert access logs.0] failed to initialize!
+2026/10/13 09:47:49 - Insert access logs.0 - ERROR: Unexpected error rolling back the database connection.
+2026/10/13 09:47:49 - Insert access logs.0 - org.apache.hop.core.exception.HopDatabaseException: 
+2026/10/13 09:47:49 - Insert access logs.0 - Unable to get database metadata from this database connection
+2026/10/13 09:47:49 - Insert access logs.0 - 
+2026/10/13 09:47:49 - Insert access logs.0 - Error connecting to database [${ETL_DB_NAME}]
+2026/10/13 09:47:49 - Insert access logs.0 - 
+2026/10/13 09:47:49 - Insert access logs.0 - 
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.core.database.Database.getDatabaseMetaData(Database.java:3372)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.core.database.Database.rollback(Database.java:917)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.core.database.Database.rollback(Database.java:909)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.emptyAndCommitBatchBuffers(TableOutput.java:1239)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.dispose(TableOutput.java:1159)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.pipeline.Pipeline.disposeInitializedTransforms(Pipeline.java:1203)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.pipeline.Pipeline.prepareExecution(Pipeline.java:1154)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.pipeline.engines.local.LocalPipelineEngine.prepareExecution(LocalPipelineEngine.java:236)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.run.HopRunBase.runPipeline(HopRunBase.java:331)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.run.HopRunBase.runPipeline(HopRunBase.java:267)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.run.HopRunBase.run(HopRunBase.java:207)
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.run.HopRun.main(HopRun.java:102)
+2026/10/13 09:47:49 - Insert access logs.0 - Caused by: org.apache.hop.core.exception.HopDatabaseException: 
+2026/10/13 09:47:49 - Insert access logs.0 - Error connecting to database [${ETL_DB_NAME}]
+2026/10/13 09:47:49 - Insert access logs.0 - 
+2026/10/13 09:47:49 - Insert access logs.0 - 	at org.apache.hop.core.database.Database.getDatabaseMetaData(Database.java:3365)
+2026/10/13 09:47:49 - Insert access logs.0 - 	... 11 more
 Error found during execution!
 picocli.CommandLine$ExecutionException: There was an error during execution of file '/opt/etl-error-analyzer/hop-pipelines/pipelines/access_log_load.hpl'
 	at org.apache.hop.run.HopRunBase.run(HopRunBase.java:216)

@@ -1,43 +1,43 @@
-2026/10/13 09:09:06 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
-2026/10/13 09:09:06 - HopRun - Enabling project 'etl-error-analyzer'
-2026/10/13 09:09:06 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
-2026/10/13 09:09:06 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/student_insert.hpl
-2026/10/13 09:09:06 - student_insert - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
-2026/10/13 09:09:06 - student_insert - Execution started for pipeline [student_insert]
-2026/10/13 09:09:07 - Insert students.0 - Connected to database [etl_analyzer_db] (commit=1000)
-2026/10/13 09:09:07 - Read new students.0 - Header row skipped in file '/opt/etl-error-analyzer/hop-pipelines/data/students_invalid_status.csv'
-2026/10/13 09:09:07 - Read new students.0 - Finished processing (I=3, O=0, R=0, W=2, U=0, E=0)
-2026/10/13 09:09:07 - Insert students.0 - ERROR: Unexpected batch update error committing the database connection.
-2026/10/13 09:09:07 - Insert students.0 - org.apache.hop.core.exception.HopDatabaseBatchException: 
-2026/10/13 09:09:07 - Insert students.0 - Error updating batch
-2026/10/13 09:09:07 - Insert students.0 - Batch entry 1 INSERT INTO school.students (student_id, document_number, full_name, email, program, enrollment_date, status) VALUES ( ('30'::int8),  ('DOC-100030'),  ('Elena Pineda'),  ('elena.pineda@example.edu'),  ('Data Science'),  ('2026-02-01 00:00:00+01'),  ('suspended')) was aborted: ERROR: new row for relation "students" violates check constraint "students_status_check"
-2026/10/13 09:09:07 - Insert students.0 -   Detail: Failing row contains (30, DOC-100030, Elena Pineda, elena.pineda@example.edu, Data Science, 2026-02-01, suspended, 2026-10-13 09:09:07.770984).  Call getNextException to see other errors in the batch.
-2026/10/13 09:09:07 - Insert students.0 - 
-2026/10/13 09:09:07 - Insert students.0 - 	at org.apache.hop.core.database.Database.createHopDatabaseBatchException(Database.java:1495)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.apache.hop.core.database.Database.emptyAndCommit(Database.java:1483)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.emptyAndCommitBatchBuffers(TableOutput.java:1203)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.dispose(TableOutput.java:1159)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.apache.hop.pipeline.transform.RunThread.run(RunThread.java:96)
-2026/10/13 09:09:07 - Insert students.0 - 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026/10/13 09:09:07 - Insert students.0 - Caused by: java.sql.BatchUpdateException: Batch entry 1 INSERT INTO school.students (student_id, document_number, full_name, email, program, enrollment_date, status) VALUES ( ('30'::int8),  ('DOC-100030'),  ('Elena Pineda'),  ('elena.pineda@example.edu'),  ('Data Science'),  ('2026-02-01 00:00:00+01'),  ('suspended')) was aborted: ERROR: new row for relation "students" violates check constraint "students_status_check"
-2026/10/13 09:09:07 - Insert students.0 -   Detail: Failing row contains (30, DOC-100030, Elena Pineda, elena.pineda@example.edu, Data Science, 2026-02-01, suspended, 2026-10-13 09:09:07.770984).  Call getNextException to see other errors in the batch.
-2026/10/13 09:09:07 - Insert students.0 - 	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.postgresql.core.ResultHandlerDelegate.handleError(ResultHandlerDelegate.java:52)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2590)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:674)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:900)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:924)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1778)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.apache.hop.core.database.Database.emptyAndCommit(Database.java:1470)
-2026/10/13 09:09:07 - Insert students.0 - 	... 4 more
-2026/10/13 09:09:07 - Insert students.0 - Caused by: org.postgresql.util.PSQLException: ERROR: new row for relation "students" violates check constraint "students_status_check"
-2026/10/13 09:09:07 - Insert students.0 -   Detail: Failing row contains (30, DOC-100030, Elena Pineda, elena.pineda@example.edu, Data Science, 2026-02-01, suspended, 2026-10-13 09:09:07.770984).
-2026/10/13 09:09:07 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
-2026/10/13 09:09:07 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
-2026/10/13 09:09:07 - Insert students.0 - 	... 9 more
-2026/10/13 09:09:07 - Insert students.0 - Finished processing (I=0, O=0, R=2, W=0, U=0, E=1)
-2026/10/13 09:09:07 - student_insert - Pipeline duration : 0.837 seconds [  0.837" ]
+2026/10/13 09:46:43 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
+2026/10/13 09:46:43 - HopRun - Enabling project 'etl-error-analyzer'
+2026/10/13 09:46:43 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
+2026/10/13 09:46:43 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/student_insert.hpl
+2026/10/13 09:46:43 - student_insert - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/13 09:46:43 - student_insert - Execution started for pipeline [student_insert]
+2026/10/13 09:46:44 - Insert students.0 - Connected to database [etl_analyzer_db] (commit=1000)
+2026/10/13 09:46:44 - Read new students.0 - Header row skipped in file '/opt/etl-error-analyzer/hop-pipelines/data/students_invalid_status.csv'
+2026/10/13 09:46:44 - Read new students.0 - Finished processing (I=3, O=0, R=0, W=2, U=0, E=0)
+2026/10/13 09:46:44 - Insert students.0 - ERROR: Unexpected batch update error committing the database connection.
+2026/10/13 09:46:44 - Insert students.0 - org.apache.hop.core.exception.HopDatabaseBatchException: 
+2026/10/13 09:46:44 - Insert students.0 - Error updating batch
+2026/10/13 09:46:44 - Insert students.0 - Batch entry 1 INSERT INTO school.students (student_id, document_number, full_name, email, program, enrollment_date, status) VALUES ( ('30'::int8),  ('DOC-100030'),  ('Elena Pineda'),  ('elena.pineda@example.edu'),  ('Data Science'),  ('2026-02-01 00:00:00+01'),  ('suspended')) was aborted: ERROR: new row for relation "students" violates check constraint "students_status_check"
+2026/10/13 09:46:44 - Insert students.0 -   Detail: Failing row contains (30, DOC-100030, Elena Pineda, elena.pineda@example.edu, Data Science, 2026-02-01, suspended, 2026-10-13 09:46:44.823606).  Call getNextException to see other errors in the batch.
+2026/10/13 09:46:44 - Insert students.0 - 
+2026/10/13 09:46:44 - Insert students.0 - 	at org.apache.hop.core.database.Database.createHopDatabaseBatchException(Database.java:1495)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.apache.hop.core.database.Database.emptyAndCommit(Database.java:1483)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.emptyAndCommitBatchBuffers(TableOutput.java:1203)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.dispose(TableOutput.java:1159)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.apache.hop.pipeline.transform.RunThread.run(RunThread.java:96)
+2026/10/13 09:46:44 - Insert students.0 - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026/10/13 09:46:44 - Insert students.0 - Caused by: java.sql.BatchUpdateException: Batch entry 1 INSERT INTO school.students (student_id, document_number, full_name, email, program, enrollment_date, status) VALUES ( ('30'::int8),  ('DOC-100030'),  ('Elena Pineda'),  ('elena.pineda@example.edu'),  ('Data Science'),  ('2026-02-01 00:00:00+01'),  ('suspended')) was aborted: ERROR: new row for relation "students" violates check constraint "students_status_check"
+2026/10/13 09:46:44 - Insert students.0 -   Detail: Failing row contains (30, DOC-100030, Elena Pineda, elena.pineda@example.edu, Data Science, 2026-02-01, suspended, 2026-10-13 09:46:44.823606).  Call getNextException to see other errors in the batch.
+2026/10/13 09:46:44 - Insert students.0 - 	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.postgresql.core.ResultHandlerDelegate.handleError(ResultHandlerDelegate.java:52)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2590)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:674)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:900)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:924)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1778)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.apache.hop.core.database.Database.emptyAndCommit(Database.java:1470)
+2026/10/13 09:46:44 - Insert students.0 - 	... 4 more
+2026/10/13 09:46:44 - Insert students.0 - Caused by: org.postgresql.util.PSQLException: ERROR: new row for relation "students" violates check constraint "students_status_check"
+2026/10/13 09:46:44 - Insert students.0 -   Detail: Failing row contains (30, DOC-100030, Elena Pineda, elena.pineda@example.edu, Data Science, 2026-02-01, suspended, 2026-10-13 09:46:44.823606).
+2026/10/13 09:46:44 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+2026/10/13 09:46:44 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+2026/10/13 09:46:44 - Insert students.0 - 	... 9 more
+2026/10/13 09:46:44 - Insert students.0 - Finished processing (I=0, O=0, R=2, W=0, U=0, E=1)
+2026/10/13 09:46:44 - student_insert - Pipeline duration : 0.979 seconds [  0.979" ]
 HopRun exit.
-2026/10/13 09:09:07 - student_insert - Execution finished on a local pipeline engine with run configuration 'local'
-2026/10/13 09:09:07 - student_insert - Pipeline detected one or more transforms with errors.
-2026/10/13 09:09:07 - student_insert - Pipeline is killing the other transforms!
+2026/10/13 09:46:44 - student_insert - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/13 09:46:44 - student_insert - Pipeline detected one or more transforms with errors.
+2026/10/13 09:46:44 - student_insert - Pipeline is killing the other transforms!

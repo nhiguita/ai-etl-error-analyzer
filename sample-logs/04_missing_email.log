@@ -1,43 +1,43 @@
-2026/10/13 09:09:12 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
-2026/10/13 09:09:12 - HopRun - Enabling project 'etl-error-analyzer'
-2026/10/13 09:09:12 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
-2026/10/13 09:09:12 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/student_insert.hpl
-2026/10/13 09:09:12 - student_insert - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
-2026/10/13 09:09:12 - student_insert - Execution started for pipeline [student_insert]
-2026/10/13 09:09:13 - Insert students.0 - Connected to database [etl_analyzer_db] (commit=1000)
-2026/10/13 09:09:13 - Read new students.0 - Header row skipped in file '/opt/etl-error-analyzer/hop-pipelines/data/students_missing_email.csv'
-2026/10/13 09:09:13 - Read new students.0 - Finished processing (I=2, O=0, R=0, W=1, U=0, E=0)
-2026/10/13 09:09:13 - Insert students.0 - ERROR: Unexpected batch update error committing the database connection.
-2026/10/13 09:09:13 - Insert students.0 - org.apache.hop.core.exception.HopDatabaseBatchException: 
-2026/10/13 09:09:13 - Insert students.0 - Error updating batch
-2026/10/13 09:09:13 - Insert students.0 - Batch entry 0 INSERT INTO school.students (student_id, document_number, full_name, email, program, enrollment_date, status) VALUES ( ('31'::int8),  ('DOC-100031'),  ('Pedro Alzate'),  (NULL),  ('Civil Engineering'),  ('2026-02-01 00:00:00+01'),  ('active')) was aborted: ERROR: null value in column "email" of relation "students" violates not-null constraint
-2026/10/13 09:09:13 - Insert students.0 -   Detail: Failing row contains (31, DOC-100031, Pedro Alzate, null, Civil Engineering, 2026-02-01, active, 2026-10-13 09:09:13.26408).  Call getNextException to see other errors in the batch.
-2026/10/13 09:09:13 - Insert students.0 - 
-2026/10/13 09:09:13 - Insert students.0 - 	at org.apache.hop.core.database.Database.createHopDatabaseBatchException(Database.java:1495)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.apache.hop.core.database.Database.emptyAndCommit(Database.java:1483)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.emptyAndCommitBatchBuffers(TableOutput.java:1203)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.dispose(TableOutput.java:1159)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.apache.hop.pipeline.transform.RunThread.run(RunThread.java:96)
-2026/10/13 09:09:13 - Insert students.0 - 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026/10/13 09:09:13 - Insert students.0 - Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO school.students (student_id, document_number, full_name, email, program, enrollment_date, status) VALUES ( ('31'::int8),  ('DOC-100031'),  ('Pedro Alzate'),  (NULL),  ('Civil Engineering'),  ('2026-02-01 00:00:00+01'),  ('active')) was aborted: ERROR: null value in column "email" of relation "students" violates not-null constraint
-2026/10/13 09:09:13 - Insert students.0 -   Detail: Failing row contains (31, DOC-100031, Pedro Alzate, null, Civil Engineering, 2026-02-01, active, 2026-10-13 09:09:13.26408).  Call getNextException to see other errors in the batch.
-2026/10/13 09:09:13 - Insert students.0 - 	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.postgresql.core.ResultHandlerDelegate.handleError(ResultHandlerDelegate.java:52)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2590)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:674)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:900)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:924)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1778)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.apache.hop.core.database.Database.emptyAndCommit(Database.java:1470)
-2026/10/13 09:09:13 - Insert students.0 - 	... 4 more
-2026/10/13 09:09:13 - Insert students.0 - Caused by: org.postgresql.util.PSQLException: ERROR: null value in column "email" of relation "students" violates not-null constraint
-2026/10/13 09:09:13 - Insert students.0 -   Detail: Failing row contains (31, DOC-100031, Pedro Alzate, null, Civil Engineering, 2026-02-01, active, 2026-10-13 09:09:13.26408).
-2026/10/13 09:09:13 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
-2026/10/13 09:09:13 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
-2026/10/13 09:09:13 - Insert students.0 - 	... 9 more
-2026/10/13 09:09:13 - Insert students.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=1)
-2026/10/13 09:09:13 - student_insert - Pipeline duration : 0.883 seconds [  0.883" ]
+2026/10/13 09:46:49 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
+2026/10/13 09:46:49 - HopRun - Enabling project 'etl-error-analyzer'
+2026/10/13 09:46:49 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
+2026/10/13 09:46:49 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/student_insert.hpl
+2026/10/13 09:46:49 - student_insert - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/13 09:46:49 - student_insert - Execution started for pipeline [student_insert]
+2026/10/13 09:46:50 - Insert students.0 - Connected to database [etl_analyzer_db] (commit=1000)
+2026/10/13 09:46:50 - Read new students.0 - Header row skipped in file '/opt/etl-error-analyzer/hop-pipelines/data/students_missing_email.csv'
+2026/10/13 09:46:50 - Read new students.0 - Finished processing (I=2, O=0, R=0, W=1, U=0, E=0)
+2026/10/13 09:46:50 - Insert students.0 - ERROR: Unexpected batch update error committing the database connection.
+2026/10/13 09:46:50 - Insert students.0 - org.apache.hop.core.exception.HopDatabaseBatchException: 
+2026/10/13 09:46:50 - Insert students.0 - Error updating batch
+2026/10/13 09:46:50 - Insert students.0 - Batch entry 0 INSERT INTO school.students (student_id, document_number, full_name, email, program, enrollment_date, status) VALUES ( ('31'::int8),  ('DOC-100031'),  ('Pedro Alzate'),  (NULL),  ('Civil Engineering'),  ('2026-02-01 00:00:00+01'),  ('active')) was aborted: ERROR: null value in column "email" of relation "students" violates not-null constraint
+2026/10/13 09:46:50 - Insert students.0 -   Detail: Failing row contains (31, DOC-100031, Pedro Alzate, null, Civil Engineering, 2026-02-01, active, 2026-10-13 09:46:50.172196).  Call getNextException to see other errors in the batch.
+2026/10/13 09:46:50 - Insert students.0 - 
+2026/10/13 09:46:50 - Insert students.0 - 	at org.apache.hop.core.database.Database.createHopDatabaseBatchException(Database.java:1495)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.apache.hop.core.database.Database.emptyAndCommit(Database.java:1483)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.emptyAndCommitBatchBuffers(TableOutput.java:1203)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.apache.hop.pipeline.transforms.tableoutput.TableOutput.dispose(TableOutput.java:1159)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.apache.hop.pipeline.transform.RunThread.run(RunThread.java:96)
+2026/10/13 09:46:50 - Insert students.0 - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026/10/13 09:46:50 - Insert students.0 - Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO school.students (student_id, document_number, full_name, email, program, enrollment_date, status) VALUES ( ('31'::int8),  ('DOC-100031'),  ('Pedro Alzate'),  (NULL),  ('Civil Engineering'),  ('2026-02-01 00:00:00+01'),  ('active')) was aborted: ERROR: null value in column "email" of relation "students" violates not-null constraint
+2026/10/13 09:46:50 - Insert students.0 -   Detail: Failing row contains (31, DOC-100031, Pedro Alzate, null, Civil Engineering, 2026-02-01, active, 2026-10-13 09:46:50.172196).  Call getNextException to see other errors in the batch.
+2026/10/13 09:46:50 - Insert students.0 - 	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.postgresql.core.ResultHandlerDelegate.handleError(ResultHandlerDelegate.java:52)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2590)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:674)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:900)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:924)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1778)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.apache.hop.core.database.Database.emptyAndCommit(Database.java:1470)
+2026/10/13 09:46:50 - Insert students.0 - 	... 4 more
+2026/10/13 09:46:50 - Insert students.0 - Caused by: org.postgresql.util.PSQLException: ERROR: null value in column "email" of relation "students" violates not-null constraint
+2026/10/13 09:46:50 - Insert students.0 -   Detail: Failing row contains (31, DOC-100031, Pedro Alzate, null, Civil Engineering, 2026-02-01, active, 2026-10-13 09:46:50.172196).
+2026/10/13 09:46:50 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+2026/10/13 09:46:50 - Insert students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+2026/10/13 09:46:50 - Insert students.0 - 	... 9 more
+2026/10/13 09:46:50 - Insert students.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=1)
+2026/10/13 09:46:50 - student_insert - Pipeline duration : 0.802 seconds [  0.802" ]
 HopRun exit.
-2026/10/13 09:09:13 - student_insert - Execution finished on a local pipeline engine with run configuration 'local'
-2026/10/13 09:09:13 - student_insert - Pipeline detected one or more transforms with errors.
-2026/10/13 09:09:13 - student_insert - Pipeline is killing the other transforms!
+2026/10/13 09:46:50 - student_insert - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/13 09:46:50 - student_insert - Pipeline detected one or more transforms with errors.
+2026/10/13 09:46:50 - student_insert - Pipeline is killing the other transforms!

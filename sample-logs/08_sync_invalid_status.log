@@ -1,38 +1,37 @@
-2026/10/13 09:09:34 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
-2026/10/13 09:09:34 - HopRun - Enabling project 'etl-error-analyzer'
-2026/10/13 09:09:34 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
-2026/10/13 09:09:34 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/student_sync.hpl
-2026/10/13 09:09:34 - student_sync - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
-2026/10/13 09:09:34 - student_sync - Execution started for pipeline [student_sync]
-2026/10/13 09:09:35 - Read student changes.0 - Header row skipped in file '/opt/etl-error-analyzer/hop-pipelines/data/students_sync_invalid_status.csv'
-2026/10/13 09:09:35 - Read student changes.0 - Finished processing (I=2, O=0, R=0, W=1, U=0, E=0)
-2026/10/13 09:09:35 - Sync students.0 - ERROR: Error in transform, asking everyone to stop because of:
-2026/10/13 09:09:35 - Sync students.0 - org.apache.hop.core.exception.HopDatabaseException: 
-2026/10/13 09:09:35 - Sync students.0 - Error inserting/updating row
-2026/10/13 09:09:35 - Sync students.0 - ERROR: new row for relation "students" violates check constraint "students_status_check"
-2026/10/13 09:09:35 - Sync students.0 -   Detail: Failing row contains (7, DOC-100007, Isabella Castro, isabella.castro@example.edu, Psychology, 2023-08-01, on_leave, 2026-10-13 09:09:30.456842).
-2026/10/13 09:09:35 - Sync students.0 - 
-2026/10/13 09:09:35 - Sync students.0 - 	at org.apache.hop.core.database.Database.insertRow(Database.java:1387)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.apache.hop.core.database.Database.insertRow(Database.java:1305)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.apache.hop.core.database.Database.insertRow(Database.java:1292)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.apache.hop.pipeline.transforms.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:165)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.apache.hop.pipeline.transforms.insertupdate.InsertUpdate.processRow(InsertUpdate.java:322)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.apache.hop.pipeline.transform.RunThread.run(RunThread.java:54)
-2026/10/13 09:09:35 - Sync students.0 - 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026/10/13 09:09:35 - Sync students.0 - Caused by: org.postgresql.util.PSQLException: ERROR: new row for relation "students" violates check constraint "students_status_check"
-2026/10/13 09:09:35 - Sync students.0 -   Detail: Failing row contains (7, DOC-100007, Isabella Castro, isabella.castro@example.edu, Psychology, 2023-08-01, on_leave, 2026-10-13 09:09:30.456842).
-2026/10/13 09:09:35 - Sync students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
-2026/10/13 09:09:35 - Sync students.0 - 	at org.apache.hop.core.database.Database.insertRow(Database.java:1352)
-2026/10/13 09:09:35 - Sync students.0 - 	... 6 more
-2026/10/13 09:09:35 - Sync students.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
-2026/10/13 09:09:35 - student_sync - Pipeline duration : 0.876 seconds [  0.876" ]
+2026/10/13 09:47:11 - HopRun - Referencing environment 'etl-local' for project etl-error-analyzer' in Development
+2026/10/13 09:47:11 - HopRun - Enabling project 'etl-error-analyzer'
+2026/10/13 09:47:11 - HopRun - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl-error-analyzer'
+2026/10/13 09:47:11 - HopRun - Starting pipeline: /opt/etl-error-analyzer/hop-pipelines/pipelines/student_sync.hpl
+2026/10/13 09:47:11 - student_sync - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/13 09:47:11 - student_sync - Execution started for pipeline [student_sync]
+2026/10/13 09:47:12 - Read student changes.0 - Header row skipped in file '/opt/etl-error-analyzer/hop-pipelines/data/students_sync_invalid_status.csv'
+2026/10/13 09:47:12 - Read student changes.0 - Finished processing (I=2, O=0, R=0, W=1, U=0, E=0)
+2026/10/13 09:47:12 - Sync students.0 - ERROR: Error in transform, asking everyone to stop because of:
+2026/10/13 09:47:12 - Sync students.0 - org.apache.hop.core.exception.HopDatabaseException: 
+2026/10/13 09:47:12 - Sync students.0 - Error inserting/updating row
+2026/10/13 09:47:12 - Sync students.0 - ERROR: new row for relation "students" violates check constraint "students_status_check"
+2026/10/13 09:47:12 - Sync students.0 -   Detail: Failing row contains (7, DOC-100007, Isabella Castro, isabella.castro@example.edu, Psychology, 2023-08-01, on_leave, 2026-10-13 09:47:06.853814).
+2026/10/13 09:47:12 - Sync students.0 - 
+2026/10/13 09:47:12 - Sync students.0 - 	at org.apache.hop.core.database.Database.insertRow(Database.java:1387)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.apache.hop.core.database.Database.insertRow(Database.java:1305)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.apache.hop.core.database.Database.insertRow(Database.java:1292)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.apache.hop.pipeline.transforms.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:165)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.apache.hop.pipeline.transforms.insertupdate.InsertUpdate.processRow(InsertUpdate.java:322)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.apache.hop.pipeline.transform.RunThread.run(RunThread.java:54)
+2026/10/13 09:47:12 - Sync students.0 - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026/10/13 09:47:12 - Sync students.0 - Caused by: org.postgresql.util.PSQLException: ERROR: new row for relation "students" violates check constraint "students_status_check"
+2026/10/13 09:47:12 - Sync students.0 -   Detail: Failing row contains (7, DOC-100007, Isabella Castro, isabella.castro@example.edu, Psychology, 2023-08-01, on_leave, 2026-10-13 09:47:06.853814).
+2026/10/13 09:47:12 - Sync students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+2026/10/13 09:47:12 - Sync students.0 - 	at org.apache.hop.core.database.Database.insertRow(Database.java:1352)
+2026/10/13 09:47:12 - Sync students.0 - 	... 6 more
+2026/10/13 09:47:12 - Sync students.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
+2026/10/13 09:47:12 - student_sync - Pipeline duration : 0.881 seconds [  0.881" ]
 HopRun exit.
-2026/10/13 09:09:35 - student_sync - Execution finished on a local pipeline engine with run configuration 'local'
-2026/10/13 09:09:35 - student_sync - Pipeline detected one or more transforms with errors.
-2026/10/13 09:09:35 - student_sync - Pipeline is killing the other transforms!
+2026/10/13 09:47:12 - student_sync - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/13 09:47:12 - student_sync - Pipeline detected one or more transforms with errors.
